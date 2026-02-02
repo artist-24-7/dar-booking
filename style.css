@@ -522,3 +522,14 @@ body {
         grid-template-columns: 1fr;
     }
 }
+/* Fix for Phone Number Direction */
+.contact-item a {
+    direction: ltr;
+    display: inline-block;
+    unicode-bidi: bidi-override;
+}
+
+/* RTL for Arabic */
+body {
+    direction: rtl;
+}
