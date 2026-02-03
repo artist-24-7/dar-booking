@@ -6,11 +6,22 @@
     <title>Ocean View Villa - سيدي موسى</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ar', 
+                includedLanguages: 'ar,en,fr,es,de,nl,it',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 
-<div class="language-bar">
-    <div id="google_translate_element"></div>
+<div style="background:#f8f9fa; padding:10px; text-align:center; border-bottom:1px solid #ddd;">
+    <span style="font-size:14px; margin-left:10px;">اختر اللغة / Select Language:</span>
+    <div id="google_translate_element" style="display:inline-block; vertical-align:middle;"></div>
 </div>
 
 <nav class="navbar">
@@ -18,119 +29,74 @@
         <div class="logo">Ocean View Villa</div>
         <ul class="nav-menu">
             <li><a href="#home">الرئيسية</a></li>
-            <li><a href="activities.html" style="color: #ffce00; font-weight: bold;">الأنشطة والمنطقة</a></li>
-            <li><a href="#features">المواصفات</a></li>
-            <li><a href="#pricing">الأسعار</a></li>
+            <li><a href="activities.html" style="color:#00d4ff;">الأنشطة</a></li>
+            <li><a href="#gallery">الصور</a></li>
             <li><a href="#contact">حجز</a></li>
         </ul>
     </div>
 </nav>
 
-<section id="home" class="hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/view-sunset-terrace.jpg'); background-size: cover; background-position: center;">
+<section id="home" class="hero" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/view-sunset-terrace.jpg'); background-size: cover; background-position: center; min-height: 80vh; display: flex; align-items: center; justify-content: center; color: white; text-align: center;">
     <div class="container">
-        <div class="hero-content">
-            <h1>Ocean View Villa</h1>
-            <p>استمتع بهدوء الطبيعة وسحر المحيط في قلب سيدي موسى</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn btn-primary">احجز الآن</a>
-                <a href="https://wa.me/212697459524" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a>
-            </div>
+        <h1 style="font-size: 3rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5);">Ocean View Villa</h1>
+        <p style="font-size: 1.2rem;">هدوء، كرم، وإطلالة مباشرة على المحيط</p>
+        <div style="margin-top:20px;">
+            <a href="#contact" class="btn btn-primary">احجز الآن</a>
+            <a href="https://wa.me/212697459524" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a>
         </div>
     </div>
 </section>
 
-<section id="features" class="features">
-    <div class="container">
-        <h2>المواصفات وتنبيهات هامة</h2>
-        <div class="features-grid">
-            <div class="feature-box">
-                <h3>🏠 مرافق الإقامة</h3>
-                <ul>
-                    <li><i class="fas fa-users"></i> <b>السعة:</b> 5 أشخاص كحد أقصى</li>
-                    <li><i class="fas fa-child"></i> <b>الأطفال:</b> تحت 7 سنوات (يرجى إعلامنا مسبقاً)</li>
-                    <li><i class="fas fa-wifi"></i> <b>الإنترنت:</b> WiFi متوفر (حسب استقرار الشبكة)</li>
-                    <li><i class="fas fa-car"></i> <b>موقف سيارات:</b> سيارة واحدة داخل الملكية</li>
-                </ul>
-            </div>
-            <div class="feature-box">
-                <h3>⚠️ قواعد وتنبيهات السلامة</h3>
-                <ul>
-                    <li>🛑 <b>السباحة:</b> وجب الحذر من التيارات (السباحة في الأماكن المحروسة فقط)</li>
-                    <li>🚗 <b>الطريق:</b> انتبه جيداً عند الدخول أو الخروج بالسيارة من الطريق الرئيسية</li>
-                    <li>🐕 <b>تنبيه:</b> المنطقة آمنة جداً، في حالة صادفتم كلاب المزارع يرجى الهدوء وعدم الجري</li>
-                    <li class="notice-box">
-                        <i class="fas fa-shopping-cart"></i> <b>نصيحة:</b> المحلات تغلق مبكراً، يرجى إحضار الماء والمؤونة قبل الوصول.
-                    </li>
-                </ul>
-            </div>
+<section class="container" style="padding: 40px 0;">
+    <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <div class="feature-box" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <h3>📜 شروط الإقامة</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li>✓ السعة: 5 أشخاص (سيارة واحدة)</li>
+                <li>✓ عقد الزواج ضروري للأزواج</li>
+                <li>✓ WiFi متوفر (حسب استقرار الجو)</li>
+            </ul>
+        </div>
+        <div class="feature-box" style="background: #fff3cd; padding: 20px; border-radius: 10px; border-right: 5px solid #ffce00;">
+            <h3 style="color: #856404;"><i class="fas fa-exclamation-triangle"></i> تنبيه هام</h3>
+            <p>المحلات تغلق مبكراً في سيدي موسى. يرجى إحضار الماء والمؤونة معكم، خصوصاً عند الوصول ليلاً.</p>
         </div>
     </div>
 </section>
 
-<section id="gallery" class="gallery">
+<section id="map" style="padding: 40px 0; background: #eee;">
     <div class="container">
-        <h2>معرض الصور</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="images/front-of-villa.jpg" alt="الواجهة"></div>
-            <div class="gallery-item"><img src="images/The-Grand-Salon.jpg" alt="الصالون"></div>
-            <div class="gallery-item"><img src="images/Master-bedroom.jpg" alt="غرفة 1"></div>
-            <div class="gallery-item"><img src="images/Second-bedroom.jpg" alt="غرفة 2"></div>
-            <div class="gallery-item"><img src="images/kitchen.jpg" alt="المطبخ"></div>
-            <div class="gallery-item"><img src="images/shower-pic1.jpg" alt="الحمام"></div>
-            <div class="gallery-item"><img src="images/Second-terrace.jpg" alt="التراس"></div>
-            <div class="gallery-item"><img src="images/entree-of-duplex.jpg" alt="المدخل"></div>
-            <div class="gallery-item"><img src="images/beach1.jpg" alt="الشاطئ"><div class="img-info">شاطئ الرمال الذهبية</div></div>
-        </div>
+        <h2 style="text-align: center; margin-bottom: 20px;">موقعنا على الخريطة</h2>
+        <iframe width="100%" height="400" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3356.5414601449!2d-8.761683924340026!3d32.72477777368565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzIsIDQzJzI5LjIiTiA4wrA0NSczMi44Ilc!5e0!3m2!1sar!2sma!4v1700000000000!5m2!1sar!2sma"></iframe>
     </div>
 </section>
 
-<section id="pricing" class="pricing">
+<section id="contact" style="padding: 60px 0;">
     <div class="container">
-        <h2>الأثمنة (Price List)</h2>
-        <div class="price-cards">
-            <div class="price-card summer">
-                <i class="fas fa-sun"></i>
-                <h3>موسم الصيف</h3>
-                <div class="price-amount">100€ <small>/ليلة</small></div>
-                <p>يوليو - أغسطس</p>
-            </div>
-            <div class="price-card winter">
-                <i class="fas fa-snowflake"></i>
-                <h3>باقي السنة</h3>
-                <div class="price-amount">65€ <small>/ليلة</small></div>
-                <p>سبتمبر - يونيو</p>
-            </div>
-        </div>
-        <div class="extra-services">
-            <p><i class="fas fa-utensils"></i> الأكل البلدي: ابتداءً من <b>15€</b></p>
-            <p><i class="fas fa-broom"></i> خدمة التنظيف: <b>20€</b></p>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="contact">
-    <div class="container">
-        <h2>احجز الآن</h2>
-        <div class="contact-form">
+        <h2 style="text-align: center;">احجز رحلتك</h2>
+        <div class="contact-form" style="max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
             <form action="https://formspree.io/f/mqeldvjv" method="POST">
-                <input type="text" name="name" placeholder="الاسم الكامل" required>
-                <input type="tel" name="phone" placeholder="رقم الهاتف" required>
-                <div class="form-group row">
-                    <input type="date" name="arrival" required>
-                    <input type="date" name="departure" required>
+                <input type="text" name="name" placeholder="الاسم الكامل" style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:5px;" required>
+                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <div style="flex:1;">
+                        <label style="display:block; font-size:12px;">من (تاريخ الدخول):</label>
+                        <input type="date" name="from" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;" required>
+                    </div>
+                    <div style="flex:1;">
+                        <label style="display:block; font-size:12px;">إلى (تاريخ الخروج):</label>
+                        <input type="date" name="to" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;" required>
+                    </div>
                 </div>
-                <textarea name="message" placeholder="رسالة إضافية..."></textarea>
-                <button type="submit" class="btn btn-primary btn-block">إرسال الطلب</button>
+                <textarea name="message" placeholder="عدد الأشخاص أو استفسار..." style="width:100%; padding:10px; height:100px; border:1px solid #ccc; border-radius:5px;"></textarea>
+                <button type="submit" class="btn btn-primary" style="width:100%; margin-top:15px; border-radius:5px;">إرسال طلب الحجز</button>
             </form>
         </div>
     </div>
 </section>
 
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'ar', includedLanguages: 'ar,en,fr,es,de,nl,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<footer class="footer" style="background:#1a5276; color:white; text-align:center; padding:20px; margin-top:40px;">
+    <p>© 2026 Ocean View Villa - سيدي موسى</p>
+</footer>
+
 </body>
 </html>
