@@ -29,17 +29,52 @@
             <h1>Heal your soul in Sidi Moussa</h1>
             <p>Where the ocean meets the fields. A sanctuary away from the noise, where stars fill the sky and waves wake you up... a natural therapy for soul and body.</p>
         </div>
+
+        <div id="nl" class="content-section">
+            <h1>Sidi Moussa: Rust voor je ziel</h1>
+            <p>Waar de oceaan de velden ontmoet. Een toevluchtsoord weg van de drukte, waar sterren de hemel vullen en golven je wakker maken... een natuurlijke therapie.</p>
+        </div>
+
+        <div id="fr" class="content-section">
+            <h1>Guérissez votre âme à Sidi Moussa</h1>
+            <p>Là où l'océan rencontre les champs. Un sanctuaire loin du bruit, où les étoiles remplissent le ciel et les vagues vous réveillent... une thérapie naturelle.</p>
+        </div>
+
+        <div id="de" class="content-section">
+            <h1>Heile deine Seele in Sidi Moussa</h1>
+            <p>Wo der Ozean auf die Felder trifft. Ein Rückzugsort fernab vom Lärm, wo Sterne den Himmel füllen und Wellen dich wecken... eine natürliche Therapie.</p>
+        </div>
+
+        <div id="es" class="content-section">
+            <h1>Sana tu alma en Sidi Moussa</h1>
+            <p>Donde el océano se encuentra con los campos. Un santuario lejos del ruido, donde las estrellas llenan el cielo y las olas te despiertan... una terapia natural.</p>
+        </div>
+
         <div style="text-align: center; margin-top: 50px;">
-            <a href="../index.html#booking" class="btn-royal-main">احجز لحظة هدوئك الآن ⛵</a>
+            <a href="../index.html#booking" id="booking-btn" class="btn-royal-main">احجز لحظة هدوئك الآن ⛵</a>
         </div>
     </div>
 
     <script>
         function changeLang(lang, btn) {
+            // إخفاء كاع الفقرات
             document.querySelectorAll('.content-section').forEach(div => div.style.display = 'none');
+            // إظهار اللغة المطلوبة
             document.getElementById(lang).style.display = 'block';
+            // تبديل شكل الزر النشط
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active-btn'));
             btn.classList.add('active-btn');
+
+            // ترجمة زر الحجز حسب اللغة
+            const btnTexts = {
+                'ar': 'احجز لحظة هدوئك الآن ⛵',
+                'nl': 'Boek nu je moment van rust ⛵',
+                'en': 'Book your moment of peace ⛵',
+                'fr': 'Réservez votre moment de paix ⛵',
+                'de': 'Buchen Sie Ihren Moment der Ruhe ⛵',
+                'es': 'Reserva tu momento de paz ⛵'
+            };
+            document.getElementById('booking-btn').innerText = btnTexts[lang];
         }
     </script>
 </body>
