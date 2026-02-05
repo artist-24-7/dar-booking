@@ -1,74 +1,38 @@
-/* blog/blog-style.css */
+/* الألوان والخطوط */
+body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #f0f4f8; }
 
-/* الأساسيات */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f8fafd; /* لون خلفية مريح للعين */
-    color: #2c3e50;
+/* هيدر الموقع والمدونة */
+.hero-royal, .blog-header {
+    background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), 
+                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover; background-position: center; background-attachment: fixed;
+    color: white; text-align: center; position: relative;
+    background-image: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('https://www.transparenttextures.com/patterns/arabesque.png'); /* زخرفة مغربية */
 }
 
-/* الهيدر الملكي */
-.blog-header {
-    background: #001f3f; /* أزرق ملكي غامق */
-    background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
-    padding: 60px 20px;
-    text-align: center;
-    border-bottom: 4px solid #c5a059; /* ذهبي */
-    color: white;
-}
+.hero-royal { height: 100vh; display: flex; align-items: center; justify-content: center; }
+.blog-header { padding: 60px 20px; border-bottom: 5px solid #c5a059; }
 
-/* حاوية المقال (هنا السحر ديال التركيز) */
+/* إطار المقال (التركيز) */
 .article-container {
-    max-width: 900px;
-    margin: -40px auto 50px auto; /* باش يطلع شوية فوق الهيدر */
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    position: relative;
-    border-left: 8px solid #c5a059; /* زخرفة ذهبية في الجنب */
-    border-right: 8px solid #c5a059;
+    max-width: 850px; margin: -50px auto 50px auto; background: white;
+    padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-left: 8px solid #c5a059; border-right: 8px solid #c5a059; position: relative;
 }
 
-/* إضافة زخرفة سداسية في الأركان */
-.article-container::before {
-    content: '✵'; /* رمز زخرفي */
-    position: absolute;
-    top: 10px; right: 10px;
-    color: #c5a059;
-    font-size: 24px;
+/* الأزرار الملكية */
+.btn-royal-main, .btn-book {
+    background: #c5a059; color: #001f3f !important; padding: 15px 35px;
+    border-radius: 50px; text-decoration: none; font-weight: bold;
+    display: inline-block; transition: 0.4s; border: 2px solid #001f3f;
 }
 
-/* تنسيق النصوص للراحة النفسية */
-h1 { color: #001f3f; font-size: 2.2rem; line-height: 1.4; }
-p { font-size: 1.15rem; line-height: 1.9; color: #444; margin-bottom: 25px; }
+.btn-royal-main:hover { background: white; transform: scale(1.05); }
 
-/* زر الحجز العائم (CTA) */
-.floating-book {
-    background: #c5a059;
-    color: #001f3f !important;
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    border: 2px solid #001f3f;
-    transition: 0.3s;
-}
+/* صندوق اللغات */
+.lang-box { text-align: center; margin-bottom: 30px; }
+.lang-btn { border: 1px solid #c5a059; background: white; padding: 8px 15px; cursor: pointer; margin: 3px; border-radius: 5px; }
+.active-btn { background: #0077be; color: white; border-color: #0077be; }
 
-.floating-book:hover {
-    background: #001f3f;
-    color: #c5a059 !important;
-}
-
-/* تحسينات للهاتف */
-@media (max-width: 768px) {
-    .article-container {
-        margin: 20px 10px;
-        padding: 20px;
-        border-left-width: 4px;
-        border-right-width: 4px;
-    }
-}
+.content-section { display: none; line-height: 1.8; font-size: 1.1rem; }
+.active-content { display: block; }
