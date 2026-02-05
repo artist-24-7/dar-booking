@@ -37,5 +37,42 @@
     <footer style="text-align: center; padding: 20px;">
         <a href="../index.html" style="color: #0077be;">← العودة للموقع الرئيسي</a>
     </footer>
+
+    <body>
+    <div class="top-nav" style="display: flex; justify-content: space-between; padding: 20px;">
+        <a href="../index.html" id="back-link">← العودة للموقع</a>
+        <a href="../index.html#booking" class="btn-royal" id="book-btn">Book Your Stay ⛵</a>
+    </div>
+    
+    <div class="lang-switcher">
+         <button onclick="changeLang('ar', this)">Ar</button>
+         <button onclick="changeLang('nl', this)">Nl</button>
+         </div>
+
+    <div id="ar" class="lang-content active-content">...</div>
+    <div id="nl" class="lang-content">...</div>
+
+        <script>
+    function changeLang(lang, btn) {
+        // هادي كتمسح 'active' من كاع النصوص وتخفيهم
+        document.querySelectorAll('.lang-content').forEach(div => div.style.display = 'none');
+        
+        // هادي كتظهر غير اللغة اللي اختاريتي
+        document.getElementById(lang).style.display = 'block';
+
+        // ترجمة أزرار الرجوع والحجز
+        const translations = {
+            'ar': { back: '← العودة للموقع', book: 'احجز إقامتك الآن ⛵' },
+            'nl': { back: '← Terug naar website', book: 'Boek je verblijf ⛵' },
+            'en': { back: '← Back to Website', book: 'Book Your Stay ⛵' },
+            'fr': { back: '← Retour au site', book: 'Réservez maintenant ⛵' },
+            'de': { back: '← Zurück zur Website', book: 'Jetzt buchen ⛵' },
+            'es': { back: '← Volver al sitio', book: 'Reserva ahora ⛵' }
+        };
+
+        document.getElementById('back-link').innerText = translations[lang].back;
+        document.getElementById('book-btn').innerText = translations[lang].book;
+    }
+</script>
 </body>
 </html>
