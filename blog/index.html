@@ -3,75 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidi Moussa Blog</title>
-    <style>
-        /* الزخرفة والألوان الملكية */
-        body { font-family: sans-serif; margin: 0; background-color: #f9fbfd; }
-        
-        .blog-header {
-            background-color: #0077be;
-            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png'); /* الزواقة المغربية */
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 5px solid #c5a059;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .btn-book {
-            background: #0077be;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 25px;
-            text-decoration: none;
-            border: 2px solid #c5a059;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        /* صندوق اللغات - مجموع ومنظم */
-        .lang-box {
-            text-align: center;
-            margin: 20px auto;
-            background: #eef4f8;
-            padding: 10px;
-            border-radius: 10px;
-            max-width: 90%;
-        }
-
-        .lang-btn {
-            border: 1px solid #0077be;
-            background: white;
-            cursor: pointer;
-            margin: 3px;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-        }
-
-        .active-btn { background: #0077be; color: white; }
-
-        .content-section { display: none; padding: 20px; line-height: 1.8; max-width: 800px; margin: auto; }
-        .active-content { display: block; }
-    </style>
+    <title>Sidi Moussa Chronicles | Ocean View Villa</title>
+    <link rel="stylesheet" href="blog-style.css">
 </head>
 <body>
 
     <div class="blog-header">
-        <h2 id="main-title">Sidi Moussa Chronicles</h2>
-        <span>⛵ Ocean View Villa</span>
+        <h2 style="margin:0; font-size: 2rem;">Sidi Moussa Chronicles</h2>
+        <p style="margin:10px 0 0; opacity: 0.9;">🌊 Peace, Nature, and Stargazing</p>
     </div>
 
     <div class="nav-container">
-        <a href="../index.html" id="back-link" style="text-decoration: none; color: #0077be;">← Back</a>
+        <a href="../index.html" id="back-link">← Back</a>
         <a href="../index.html#booking" class="btn-book" id="book-btn">Book Now ⛵</a>
     </div>
 
@@ -85,29 +28,35 @@
     </div>
 
     <div id="ar" class="content-section active-content">
-        <h1>سيدي موسى: الجوهرة المخفية</h1>
-        <p>هنا غاتكون القصة ديالنا بالعربية...</p>
+        <h1>🌊 سيدي موسى: سحر الطبيعة والسكينة</h1>
+        <p>اكتشف جنة الهدوء في قلب دكالة، حيث يلتقي المحيط بالسماء الصافية...</p>
+        <img src="../img/ocean-view.jpg" alt="Sidi Moussa">
     </div>
 
     <div id="nl" class="content-section">
-        <h1>Sidi Moussa: De Verborgen Parel</h1>
-        <p>Hier komt het verhaal in het Nederlands...</p>
+        <h1>🌊 Sidi Moussa: Natuur en Rust</h1>
+        <p>Ontdek een paradijs van rust in het hart van Doukkala...</p>
+        <img src="../img/ocean-view.jpg" alt="Sidi Moussa">
     </div>
 
     <div id="en" class="content-section">
-        <h1>Sidi Moussa: The Hidden Gem</h1>
-        <p>Your story in English goes here...</p>
+        <h1>🌊 Sidi Moussa: The Hidden Gem</h1>
+        <p>Experience the ultimate digital detox under the stars...</p>
+        <img src="../img/ocean-view.jpg" alt="Sidi Moussa">
     </div>
-
+    
     <script>
         function changeLang(lang, btn) {
-            // إخفاء الكل وإظهار المختار
-            document.querySelectorAll('.content-section').forEach(div => div.classList.remove('active-content'));
+            // إخفاء كاع الفقرات
+            document.querySelectorAll('.content-section').forEach(div => div.style.display = 'none');
+            // إظهار اللغة اللي تختارat
+            document.getElementById(lang).style.display = 'block';
+            
+            // تبديل اللون ديال الأزرار
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active-btn'));
-            document.getElementById(lang).classList.add('active-content');
             btn.classList.add('active-btn');
 
-            // ترجمة الأزرار
+            // ترجمة أزرار الرجوع والحجز أوتوماتيكياً
             const texts = {
                 'ar': { back: '← العودة للموقع', book: 'احجز الآن ⛵' },
                 'nl': { back: '← Terug naar site', book: 'Nu Boeken ⛵' },
