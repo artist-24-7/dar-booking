@@ -1,93 +1,19 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidi Moussa Blog | Ocean View Villa</title>
-    <link rel="stylesheet" href="blog-style.css">
-</head>
-<body>
-
-    <div class="blog-header">
-        <h2 style="margin:0;">Sidi Moussa Chronicles</h2>
-        <p>🌊 Ocean View Villa Morocco</p>
+<section class="hero-royal">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <span class="tradition-tag">Authentic Moroccan Experience</span>
+            <h1>ارحم روحك في أحضان سيدي موسى</h1>
+            <p class="hero-description">
+                هنا، حيث يلتقي صخب المحيط بهدوء الحقول. ملاذٌ بعيد عن صخب الحياة، 
+                حيث تفرش لك النجوم سماءها، وتوقظك أمواج البحر في غرفتك... 
+                علاجٌ طبيعي للروح والجسد.
+            </p>
+            <div class="hero-features">
+                <span>🌊 صوت الأمواج</span>
+                <span>🌿 هواء الفلاحة</span>
+                <span>✨ نجوم ساطعة</span>
+            </div>
+            <a href="#booking" class="btn-royal-main">ابدأ رحلة الاسترخاء الآن ⛵</a>
+        </div>
     </div>
-
-    <div class="nav-container">
-        <a href="../index.html" id="back-link">← Back</a>
-        <a href="../index.html#booking" class="btn-book" id="book-btn">Book Now ⛵</a>
-    </div>
-
-    <div class="lang-box">
-        <button class="lang-btn active-btn" onclick="changeLang('ar', this)">🇲🇦 AR</button>
-        <button class="lang-btn" onclick="changeLang('nl', this)">🇳🇱 NL</button>
-        <button class="lang-btn" onclick="changeLang('en', this)">🇬🇧 EN</button>
-        <button class="lang-btn" onclick="changeLang('fr', this)">🇫🇷 FR</button>
-        <button class="lang-btn" onclick="changeLang('de', this)">🇩🇪 DE</button>
-        <button class="lang-btn" onclick="changeLang('es', this)">🇪🇸 ES</button>
-    </div>
-
-    <div id="ar" class="content-section active-content">
-        <h1>🌊 سيدي موسى: سحر الطبيعة والسكينة</h1>
-        <p>اكتشف جنة الهدوء في قلب دكالة، حيث يلتقي المحيط بالسماء الصافية والنجوم...</p>
-    </div>
-
-    <div id="nl" class="content-section">
-        <h1>🌊 Sidi Moussa: Natuur en Rust</h1>
-        <p>Ontdek een paradijs van rust in het hart van Doukkala...</p>
-    </div>
-
-    <div id="en" class="content-section">
-        <h1>🌊 Sidi Moussa: The Hidden Gem</h1>
-        <p>Experience the ultimate digital detox under the starry sky of Morocco...</p>
-    </div>
-
-    <div id="fr" class="content-section">
-        <h1>🌊 Sidi Moussa : Le Joyau Caché</h1>
-        <p>Découvrez un paradis de paix au cœur de Doukkala...</p>
-    </div>
-
-    <div id="de" class="content-section">
-        <h1>🌊 Sidi Moussa: Das verborgene Juwel</h1>
-        <p>Erleben Sie absolute Ruhe im Herzen von Doukkala...</p>
-    </div>
-
-    <div id="es" class="content-section">
-        <h1>🌊 Sidi Moussa: La Joya Escondida</h1>
-        <p>Descubre un paraíso de paz en el corazón de Doukkala...</p>
-    </div>
-
-    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="scrollTopBtn">↑</button>
-
-    <script>
-        function changeLang(lang, btn) {
-            // إخفاء الكل
-            document.querySelectorAll('.content-section').forEach(div => div.style.display = 'none');
-            // إظهار المختار
-            document.getElementById(lang).style.display = 'block';
-            
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active-btn'));
-            btn.classList.add('active-btn');
-
-            const texts = {
-                'ar': { back: '← العودة للموقع', book: 'احجز الآن ⛵' },
-                'nl': { back: '← Terug naar site', book: 'Nu Boeken ⛵' },
-                'en': { back: '← Back to site', book: 'Book Now ⛵' },
-                'fr': { back: '← Retour au site', book: 'Réserver ⛵' },
-                'de': { back: '← Zurück', book: 'Jetzt Buchen ⛵' },
-                'es': { back: '← Volver', book: 'Reservar ⛵' }
-            };
-
-            document.getElementById('back-link').innerText = texts[lang].back;
-            document.getElementById('book-btn').innerText = texts[lang].book;
-        }
-
-        // إظهار زر الطلوع للفوق عند النزول
-        window.onscroll = function() {
-            let btn = document.getElementById("scrollTopBtn");
-            if (document.documentElement.scrollTop > 300) { btn.style.display = "block"; } 
-            else { btn.style.display = "none"; }
-        };
-    </script>
-</body>
-</html>
+</section>
