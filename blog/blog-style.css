@@ -36,3 +36,11 @@ body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #f0f4f8
 
 .content-section { display: none; line-height: 1.8; font-size: 1.1rem; }
 .active-content { display: block; }
+
+/* هادشي كيزاد في آخر ملف blog-style.css */
+.video-wrapper iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9; 
+    height: auto;
+    border-radius: 15px; /* باش يجي الفيديو مقنت وزوين */
+}
