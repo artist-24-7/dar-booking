@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidi Moussa Chronicles | Ocean View Villa</title>
+    <title>Sidi Moussa Blog | Ocean View Villa</title>
     <link rel="stylesheet" href="blog-style.css">
 </head>
 <body>
 
     <div class="blog-header">
-        <h2 style="margin:0; font-size: 2rem;">Sidi Moussa Chronicles</h2>
-        <p style="margin:10px 0 0; opacity: 0.9;">🌊 Peace, Nature, and Stargazing</p>
+        <h2 style="margin:0;">Sidi Moussa Chronicles</h2>
+        <p>🌊 Ocean View Villa Morocco</p>
     </div>
 
     <div class="nav-container">
@@ -29,46 +29,65 @@
 
     <div id="ar" class="content-section active-content">
         <h1>🌊 سيدي موسى: سحر الطبيعة والسكينة</h1>
-        <p>اكتشف جنة الهدوء في قلب دكالة، حيث يلتقي المحيط بالسماء الصافية...</p>
-        <img src="../img/ocean-view.jpg" alt="Sidi Moussa">
+        <p>اكتشف جنة الهدوء في قلب دكالة، حيث يلتقي المحيط بالسماء الصافية والنجوم...</p>
     </div>
 
     <div id="nl" class="content-section">
         <h1>🌊 Sidi Moussa: Natuur en Rust</h1>
         <p>Ontdek een paradijs van rust in het hart van Doukkala...</p>
-        <img src="../img/ocean-view.jpg" alt="Sidi Moussa">
     </div>
 
     <div id="en" class="content-section">
         <h1>🌊 Sidi Moussa: The Hidden Gem</h1>
-        <p>Experience the ultimate digital detox under the stars...</p>
-        <img src="../img/ocean-view.jpg" alt="Sidi Moussa">
+        <p>Experience the ultimate digital detox under the starry sky of Morocco...</p>
     </div>
-    
+
+    <div id="fr" class="content-section">
+        <h1>🌊 Sidi Moussa : Le Joyau Caché</h1>
+        <p>Découvrez un paradis de paix au cœur de Doukkala...</p>
+    </div>
+
+    <div id="de" class="content-section">
+        <h1>🌊 Sidi Moussa: Das verborgene Juwel</h1>
+        <p>Erleben Sie absolute Ruhe im Herzen von Doukkala...</p>
+    </div>
+
+    <div id="es" class="content-section">
+        <h1>🌊 Sidi Moussa: La Joya Escondida</h1>
+        <p>Descubre un paraíso de paz en el corazón de Doukkala...</p>
+    </div>
+
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="scrollTopBtn">↑</button>
+
     <script>
         function changeLang(lang, btn) {
-            // إخفاء كاع الفقرات
+            // إخفاء الكل
             document.querySelectorAll('.content-section').forEach(div => div.style.display = 'none');
-            // إظهار اللغة اللي تختارat
+            // إظهار المختار
             document.getElementById(lang).style.display = 'block';
             
-            // تبديل اللون ديال الأزرار
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active-btn'));
             btn.classList.add('active-btn');
 
-            // ترجمة أزرار الرجوع والحجز أوتوماتيكياً
             const texts = {
                 'ar': { back: '← العودة للموقع', book: 'احجز الآن ⛵' },
                 'nl': { back: '← Terug naar site', book: 'Nu Boeken ⛵' },
                 'en': { back: '← Back to site', book: 'Book Now ⛵' },
-                'fr': { back: '← Retour', book: 'Réserver ⛵' },
-                'de': { back: '← Zurück', book: 'Buchen ⛵' },
+                'fr': { back: '← Retour au site', book: 'Réserver ⛵' },
+                'de': { back: '← Zurück', book: 'Jetzt Buchen ⛵' },
                 'es': { back: '← Volver', book: 'Reservar ⛵' }
             };
 
             document.getElementById('back-link').innerText = texts[lang].back;
             document.getElementById('book-btn').innerText = texts[lang].book;
         }
+
+        // إظهار زر الطلوع للفوق عند النزول
+        window.onscroll = function() {
+            let btn = document.getElementById("scrollTopBtn");
+            if (document.documentElement.scrollTop > 300) { btn.style.display = "block"; } 
+            else { btn.style.display = "none"; }
+        };
     </script>
 </body>
 </html>
