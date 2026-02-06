@@ -1,10 +1,7 @@
 backend:
   name: git-gateway
-  branch: main
-  site_domain: oceanviewvillamorocco.com # الدومين الجديد
-
-site_url: https://oceanviewvillamorocco.com
-display_url: https://oceanviewvillamorocco.com
+  branch: main # تأكد أن الفرع في GitHub سميتو main ماشي master
+  site_domain: oceanviewvillamorocco.com
 
 media_folder: "blog/img"
 public_folder: "/blog/img"
@@ -12,18 +9,19 @@ public_folder: "/blog/img"
 collections:
   - name: "blog"
     label: "المقالات"
-    folder: "blog"
+    folder: "blog" # هاد المجلد خاصو يكون موجود في GitHub
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # هادي كتحمي من تكرار العناوين
+    editor:
+      preview: false # كينقص الثقل على المتصفح
     fields:
       - {label: "عنوان المقال", name: "title", widget: "string"}
-      - {label: "الوصف المصغر (SEO)", name: "description", widget: "string"} # مهم لجوجل
-      - {label: "الصورة الرئيسية", name: "image", widget: "image"}
-      - {label: "رابط فيديو أو Affiliate", name: "external_link", widget: "string", required: false}
-      
-      - {label: "المقال بالعربية 🇲🇦", name: "body", widget: "markdown"} # الخانة الأساسية
-      - {label: "المقال بالإنجليزية 🇬🇧", name: "body_en", widget: "markdown"}
-      - {label: "المقال بالفرنسية 🇫🇷", name: "body_fr", widget: "markdown"}
-      - {label: "المقال بالهولندية 🇳🇱", name: "body_nl", widget: "markdown"}
-      - {label: "المقال بالألمانية 🇩🇪", name: "body_de", widget: "markdown"}
-      - {label: "المقال بالإسبانية 🇪🇸", name: "body_es", widget: "markdown"}
+      - {label: "الوصف المصغر (SEO)", name: "description", widget: "string"}
+      - {label: "الصورة الرئيسية", name: "image", widget: "image", required: false}
+      - {label: "رابط خارجي", name: "external_link", widget: "string", required: false}
+      - {label: "المقال بالعربية 🇲🇦", name: "body", widget: "markdown"}
+      - {label: "المقال بالإنجليزية 🇬🇧", name: "body_en", widget: "markdown", required: false}
+      - {label: "المقال بالفرنسية 🇫🇷", name: "body_fr", widget: "markdown", required: false}
+      - {label: "المقال بالهولندية 🇳🇱", name: "body_nl", widget: "markdown", required: false}
+      - {label: "المقال بالألمانية 🇩🇪", name: "body_de", widget: "markdown", required: false}
+      - {label: "المقال بالإسبانية 🇪🇸", name: "body_es", widget: "markdown", required: false}
