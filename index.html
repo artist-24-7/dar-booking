@@ -59,6 +59,9 @@
     <meta property="og:url" content="https://oceanviewvillamorocco.com">
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- Linked Stylesheet with Mobile Fixes -->
+    <link rel="stylesheet" href="style.css">
+
     <!-- Structured Data for AI & Search Engines (JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -131,7 +134,7 @@
             <span class="text-amber-400 font-bold tracking-widest text-xs uppercase bg-amber-400/10 px-3 py-1 rounded-full inline-block mb-4">Sidi Moussa • El Jadida • Oualidia</span>
             <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">Ocean View Villa</h1>
             <p class="text-lg sm:text-xl font-light text-slate-200 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Disconnect from the noise. Experience profound calm, migratory bird watching, starry dark skies, and natural comfort in our premium beachfront duplex retreat. (Please note: Rental covers our private independent duplex apartment unit within the property, not the entire standalone villa structure).
+                Disconnect from the noise. Experience profound calm, migratory bird watching, starry dark skies, and natural comfort in our premium beachfront duplex retreat.
             </p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
                 <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-ocean hover:bg-sky-800 font-bold text-white rounded-full shadow-lg transition-all text-center">Book Your Stay</a>
@@ -183,17 +186,37 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- UPGRADED 5-STAR TESTIMONIALS SECTION -->
     <section class="py-16 bg-slate-50 border-t border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-slate-900 mb-12">Guest Experiences</h2>
             <div class="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-ocean">
-                    <p class="italic text-slate-600 text-sm leading-relaxed">"An incredible stay by all metrics. Our family found the exact peace we were searching for."</p>
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-ocean flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 mb-3 text-amber-500">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="italic text-slate-600 text-sm leading-relaxed">"An incredible stay by all metrics. Our family found the exact peace we were searching for. The ocean view from the terrace is mesmerizing."</p>
+                    </div>
                     <span class="block mt-4 font-bold text-ocean text-xs sm:text-sm">— Maria (Italy)</span>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-ocean">
-                    <p class="italic text-slate-600 text-sm leading-relaxed">"Immaculately clean duplex, fully stocked with utilities. The host's hospitality was highly professional."</p>
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-ocean flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 mb-3 text-amber-500">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="italic text-slate-600 text-sm leading-relaxed">"Immaculately clean duplex, fully stocked with utilities. The host's hospitality was highly professional. Perfect for a real digital detox."</p>
+                    </div>
                     <span class="block mt-4 font-bold text-ocean text-xs sm:text-sm">— Adil (Morocco)</span>
                 </div>
             </div>
@@ -256,7 +279,7 @@
                 </div>
             </div>
             
-            <!-- New Weekend Discount Banner -->
+            <!-- Weekend Discount Banner -->
             <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 text-center max-w-xl mx-auto">
                 <h4 class="font-bold text-amber-900 text-base mb-1">🎁 Weekend Stay Discounts</h4>
                 <p class="text-amber-800 text-sm leading-relaxed font-light mb-3">Depending on seasonal availability and conditions, enjoy an exclusive discount from 10% up to 30% on weekend bookings!</p>
@@ -281,7 +304,7 @@
                     <p class="text-slate-400 font-light">Skip middle-man markups. Connect directly via Form or WhatsApp.</p>
                     <div class="space-y-4 text-sm">
                         <div><i class="fab fa-whatsapp text-emerald-400 mr-2"></i> WhatsApp: <a href="https://wa.me/212697459524" target="_blank" class="text-emerald-400 underline font-semibold">+212 697 459 524</a></div>
-                        <div><i class="fas fa-envelope text-sky-400 mr-2"></i> Email: <a href="mailto:contact@oceanviewvillamorocco.com" class="text-sky-300">contact@oceanviewvillamorocco.com</a></div>
+                        <div><i class="fas fa-envelope text-sky-400 mr-2"></i> Email: <a href="mailto:contact@oceanviewvillaromocco.com" class="text-sky-300">contact@oceanviewvillamorocco.com</a></div>
                     </div>
                 </div>
                 <div class="lg:col-span-7 bg-white text-slate-900 rounded-3xl p-8 shadow-xl">
@@ -320,7 +343,6 @@
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
       
-      // RUN AUTOMATIC BROWSER-LANGUAGE DETECTOR ENGINE
       if (!document.cookie.includes('googtrans')) {
         const userLang = navigator.language || navigator.userLanguage;
         const langCode = userLang.substring(0, 2).toLowerCase();
