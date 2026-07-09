@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T2T5CJ5H');</script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Google tag (gtag.js) -->
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n    })(window,document,'script','dataLayer','GTM-T2T5CJ5H');</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KL05GZ0WFF"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -21,94 +15,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activities & Region Guide | Ocean View Villa Sidi Moussa</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = { theme: { extend: { colors: { ocean: '#1a5276' } } } }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ocean: '#1a5276',
+            }
+          }
+        }
+      }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 font-sans antialiased text-slate-800 overflow-x-hidden">
-
-    <!-- Google Tag Manager (noscript) -->
+<body class="bg-slate-950 text-slate-300 min-h-screen flex flex-col antialiased selection:bg-amber-500 selection:text-slate-950">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2T5CJ5H" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-    <div class="bg-slate-900 py-1.5 text-center text-xs text-white">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-            <span><i class="fa-solid fa-compass text-amber-400 mr-1"></i> Authentic Regional Discoveries & Local Guidance</span>
-            <div id="google_translate_element" class="text-slate-900 rounded"></div>
-        </div>
-    </div>
-
-    <!-- HEADER -->
-    <header class="sticky top-0 z-40 w-full border-b border-slate-100 bg-white/95 shadow-sm backdrop-blur-md">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-            <a href="index.html" class="flex items-center gap-2 text-sm font-bold text-ocean uppercase">
-                <i class="fas fa-arrow-left"></i> Return Home
+    <header class="border-b border-slate-900 sticky top-0 bg-slate-950/80 backdrop-blur-md z-40">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2.5 group">
+                <span class="font-serif italic font-bold text-xl md:text-2xl text-white tracking-wide group-hover:text-amber-400 transition-colors">Ocean View Villa</span>
+                <span class="text-[10px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-full text-amber-500 font-mono tracking-widest uppercase">Guide</span>
             </a>
-            <span class="text-xs uppercase font-bold tracking-wider text-amber-600">Local Area Guide</span>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="index.html" class="hover:text-white transition-colors">Main Villa</a>
+                <a href="index.html#features" class="hover:text-white transition-colors">The Duplex</a>
+                <a href="index.html#pricing" class="hover:text-white transition-colors">Pricing</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <div id="google_translate_element" class="scale-90 origin-right opacity-80"></div>
+                <a href="index.html#book" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all">Book Stay</a>
+            </div>
         </div>
     </header>
 
-    <!-- CONTENT SECTION[cite: 17] -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-            <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">Activities & Regional Discoveries</h1>
-            <p class="mt-4 text-slate-500 text-sm italic">Note: We do not organize these activities commercially; we simply connect you with the finest trusted local experts and generational farmers[cite: 17].</p>
-        </div>
-
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <!-- Card 1[cite: 17] -->
-            <div class="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm border-l-4 border-ocean">
-                <h3 class="font-bold text-lg text-slate-900 mb-2">🎣 Sea Fishing & Angling</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">Enjoy rod fishing on adjacent golden beaches or at "Mrezika"[cite: 17]. Outings with traditional fishermen can be arranged based on maritime weather stability[cite: 17].</p>
-            </div>
-            <!-- Card 2[cite: 17] -->
-            <div class="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm border-l-4 border-ocean">
-                <h3 class="font-bold text-lg text-slate-900 mb-2">🐎 Horse & Donkey Riding</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">Experience scenic coastal horse riding curated by local breeders, or enjoy traditional donkey paths across countryside fields[cite: 17].</p>
-            </div>
-            <!-- Card 3[cite: 17] -->
-            <div class="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm border-l-4 border-ocean">
-                <h3 class="font-bold text-lg text-slate-900 mb-2">🚶 Nature Trail Hiking</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">Take pristine morning walks directly through local organic vegetable farms or climb the panoramic coastal hills directly behind the villa duplex[cite: 17].</p>
-            </div>
-            <!-- Card 4[cite: 17] -->
-            <div class="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm border-l-4 border-ocean">
-                <h3 class="font-bold text-lg text-slate-900 mb-2">🛒 Authentic Rural Souks</h3>
-                <p class="text-slate-600 text-sm leading-relaxed"><b>Weekly Countryside Souk:</b> Every Sunday — a pure cultural trading experience![cite: 17]<br><b>Sidi Abed:</b> A nearby coastal village featuring popular cafes, open-air grills, and fresh fish tagines[cite: 17].</p>
-            </div>
-            <!-- Card 5[cite: 17] -->
-            <div class="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm border-l-4 border-ocean">
-                <h3 class="font-bold text-lg text-slate-900 mb-2">🏄 Professional Atlantic Surfing</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">The regional breaks are widely known for waves exceeding 3 meters at specific reef nodes, perfectly suited for seasoned professional surfers (Extreme caution advised)[cite: 17].</p>
-            </div>
-            <!-- Card 6[cite: 17] -->
-            <div class="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm border-l-4 border-ocean">
-                <h3 class="font-bold text-lg text-slate-900 mb-2">🐟 Daily Fresh Catch Sourcing</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">Purchase wild Atlantic catches (Dorade, Calamari, Seabass) directly from incoming small-boat traditional fishermen at "Mrezika" at incredible local prices[cite: 17].</p>
+    <main class="flex-grow max-w-7xl mx-auto px-4 py-12 space-y-12">
+        <div class="text-center space-y-4 max-w-2xl mx-auto">
+            <h1 class="font-serif text-3xl md:text-5xl text-white font-bold">Sidi Moussa Activities Guide</h1>
+            <p class="text-slate-400 text-sm font-light">Explore pristine, offline nature adventures directly surrounding your premium 176m² duplex compound.</p>
+            
+            <div class="relative max-w-md mx-auto pt-4">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-7 text-slate-500 text-xs"></i>
+                <input type="text" id="activity-search" placeholder="Search coastal activities (e.g., Birdwatching, Fishing)..." class="w-full bg-slate-900 border border-slate-800 rounded-xl pl-10 pr-4 py-3 text-xs text-white focus:outline-none focus:border-amber-500 transition-colors shadow-inner">
             </div>
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-950 text-slate-500 py-8 text-center text-xs mt-12 border-t border-slate-900">
-        <p>&copy; 2026 Ocean View Villa. All rights reserved[cite: 17].</p>
+        <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="activities-grid">
+            
+            <div class="activity-card bg-slate-900/40 border border-slate-900 rounded-2xl p-6 hover:border-amber-500/30 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <div class="text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-dove"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">🦅 Coastal Birdwatching</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed">
+                        Sidi Moussa's tranquil lagoon and raw shoreline serve as a major global highway for beautiful migratory birds. A peaceful haven for nature explorers, professional photographers, and pure wildlife observation.
+                    </p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-900 text-[11px] text-slate-500 font-medium tracking-wider uppercase">✨ Unmissable Attraction</div>
+            </div>
+
+            <div class="activity-card bg-slate-900/40 border border-slate-900 rounded-2xl p-6 hover:border-amber-500/30 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <div class="text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-fish"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">🎣 Deep-Sea Surfcasting</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed">Sidi Moussa is world-renowned for its rocky shorelines and deep ocean drops. Bring your rod or learn local surfcasting tricks from coastal fishermen to catch heavy wild Sea Bass.</p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-900 text-[11px] text-slate-500 font-medium tracking-wider uppercase">🎣 Atlantic Tradition</div>
+            </div>
+
+            <div class="activity-card bg-slate-900/40 border border-slate-900 rounded-2xl p-6 hover:border-amber-500/30 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <div class="text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-horse"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">🐎 Equestrian Beach Gallops</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed">Coordinate directly with local beachfront horse breeders for mesmerizing sunset or sunrise horse gallops across the wet coastal sands.</p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-900 text-[11px] text-slate-500 font-medium tracking-wider uppercase">🐎 Active Adventure</div>
+            </div>
+
+            <div class="activity-card bg-slate-900/40 border border-slate-900 rounded-2xl p-6 hover:border-amber-500/30 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <div class="text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-route"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">🚶 Cliffside Trekking Paths</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed">Walk peacefully through traditional organic vegetable farms, or ascend the panoramic dirt hills sitting directly behind the villa compound for breathtaking Atlantic sunset points.</p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-900 text-[11px] text-slate-500 font-medium tracking-wider uppercase">🚶 Healthy Eco-Tour</div>
+            </div>
+
+            <div class="activity-card bg-slate-900/40 border border-slate-900 rounded-2xl p-6 hover:border-amber-500/30 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <div class="text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-shop"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">🛒 The Weekly Sunday Souk</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed">Immerse yourself completely in deep rural Moroccan culture. The regional open-air marketplace opens every Sunday, packed with local crafts, fruits, and organic assets.</p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-900 text-[11px] text-slate-500 font-medium tracking-wider uppercase">🛒 Culture Experience</div>
+            </div>
+
+            <div class="activity-card bg-slate-900/40 border border-slate-900 rounded-2xl p-6 hover:border-amber-500/30 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <div class="text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-water"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">🏄 Professional Ocean Surfing</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed">The immediate coastal swells can throw up magnificent waves regularly clearing 3 meters. A brilliant, uncrowded space suited perfectly for experienced surfers.</p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-900 text-[11px] text-slate-500 font-medium tracking-wider uppercase">🏄 Adrenaline Water</div>
+            </div>
+
+            <div class="activity-card bg-slate-900/40 border border-slate-900 rounded-2xl p-6 hover:border-amber-500/30 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <div class="text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2">🐟 Mrezika Fresh Fish Sourcing</h3>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed">Walk down directly to incoming traditional small wooden fishing boats at the neighboring "Mrezika" inlet to source fresh Dorade, Sea Bass, and Calamari at unmatched local prices.</p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-900 text-[11px] text-slate-500 font-medium tracking-wider uppercase">🐟 Fresh Gastronomy</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-950 text-slate-500 py-8 text-center text-xs border-t border-slate-900">
+        <p>&copy; 2026 Ocean View Villa. All rights reserved.</p>
     </footer>
 
-    <!-- AUTO DETECT TRANS CODE -->
+    <script src="script.js"></script>
     <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,en,fr,es,de,nl,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-      if (!document.cookie.includes('googtrans')) {
-        const userLang = navigator.language || navigator.userLanguage;
-        const langCode = userLang.substring(0, 2).toLowerCase();
-        const supportedLangs = ['ar', 'fr', 'es', 'de', 'nl', 'it'];
-        if (supportedLangs.includes(langCode)) {
-          document.cookie = "googtrans=/en/" + langCode + "; path=/;";
-          window.location.reload();
-        }
-      }
     }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
