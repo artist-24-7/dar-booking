@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Ocean View Villa global script successfully initialized.');
 
     // ==========================================================================
-    // 1. ADVANCED PHOTO PROTECTION SYSTEM (No Changes, fully functional)
+    // 1. ADVANCED PHOTO PROTECTION SYSTEM
     // ==========================================================================
     const initializeAssetProtection = () => {
         let toast = document.getElementById('copyright-toast');
@@ -107,10 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ==========================================================================
-    // 4. HIGH-FIDELITY IMMERSIVE ZOOM SYSTEM (Lightbox Modal for all screens)
+    // 4. HIGH-FIDELITY IMMERSIVE ZOOM SYSTEM (With Google Translate Isolated Fix)
     // ==========================================================================
     const initializeLightboxZoom = () => {
-        // Targets all images inside our main view grids
         const zoomableImages = document.querySelectorAll('#gallery img, #villa-gallery img, .gallery-item img');
         
         zoomableImages.forEach(img => {
@@ -119,24 +118,21 @@ document.addEventListener('DOMContentLoaded', () => {
             img.addEventListener('click', (e) => {
                 e.stopPropagation();
                 
-                // Create a sleek dark blurry overlay backdrop wrapper dynamic asset
                 const lightbox = document.createElement('div');
-                lightbox.className = 'fixed inset-0 z-[9999] bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 cursor-zoom-out transition-opacity duration-300 opacity-0';
+                lightbox.className = 'fixed inset-0 z-[9999] bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 cursor-zoom-out transition-opacity duration-300 opacity-0 skiptranslate';
                 
-                // Keep asset high-quality rendering boundaries safely on mobiles/desktops
+                // Added strict selection blocking and pointer isolation to prevent triggering translate engine widgets
                 lightbox.innerHTML = `
-                    <div class="relative max-w-5xl max-h-[90vh] flex items-center justify-center animate-slide-up">
-                        <img src="${img.src}" alt="${img.alt || 'Ocean View Villa Asset'}" class="max-w-full max-h-[85vh] rounded-xl shadow-2xl object-contain border border-slate-800 select-none pointer-events-none">
+                    <div class="relative max-w-5xl max-h-[90vh] flex items-center justify-center animate-slide-up select-none touch-none">
+                        <img src="${img.src}" alt="${img.alt || 'Ocean View Villa Asset'}" class="max-w-full max-h-[85vh] rounded-xl shadow-2xl object-contain border border-slate-800 select-none pointer-events-none no-translate">
                         <button class="absolute -top-12 right-0 md:-right-12 text-white text-3xl bg-slate-900/80 hover:bg-amber-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors border border-slate-700">&times;</button>
                     </div>
                 `;
                 
                 document.body.appendChild(lightbox);
                 
-                // Smooth Fade In
                 setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
                 
-                // Fast dismiss click triggers
                 const dismissLightbox = () => {
                     lightbox.classList.add('opacity-0');
                     setTimeout(() => lightbox.remove(), 300);
