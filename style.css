@@ -2,19 +2,19 @@
    Ocean View Villa - Premium Global Stylesheet
    ========================================================================== */
 
-/* إعدادات الخطوط الافتراضية والتنقل السلس */
+/* Default Base Typography Transitions */
 html {
     scroll-behavior: smooth;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-/* تخصيص مظهر أداة الترجمة من جوجل لتلائم الهوية البصرية الفاخرة للفيلا */
+/* Custom Google Translate Cleanup Configuration */
 #google_translate_element select {
     background-color: #0f172a !important; /* slate-900 */
     color: #f8fafc !important; /* slate-50 */
     border: 1px solid #334155 !important; /* slate-700 */
     padding: 6px 12px !important;
-    border-radius: 9999px !important; /* دائرية بالكامل لتطابق تصميم الأزرار */
+    border-radius: 9999px !important;
     font-size: 0.75rem !important;
     font-weight: 600 !important;
     outline: none !important;
@@ -24,11 +24,11 @@ html {
 
 #google_translate_element select:hover {
     background-color: #1e293b !important; /* slate-800 */
-    border-color: #1a5276 !important; /* ocean color */
+    border-color: #1a5276 !important;
 }
 
-/* إخفاء شريط جوجل الإجباري الذي يظهر في أعلى الصفحة عند الترجمة */
-.skiptranslate iframe, .goog-te-banner-frame {
+/* COMPLETELY FORCE HIDE UGLY GOOGLE EMBEDDED TRANSLATION TOP BARS */
+.skiptranslate iframe, .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame {
     display: none !important;
     visibility: hidden !important;
 }
@@ -37,20 +37,32 @@ body {
     top: 0px !important;
 }
 
-/* تخصيص إطار الخريطة ليتناسب مع الحواف الدائرية العامة للموقع */
-#map iframe {
-    filter: grayscale(10%) contrast(105%);
-    border-radius: 1.5rem;
-    padding: 0 1rem;
-}
-
-@media (min-width: 768px) {
-    #map iframe {
-        padding: 0 2rem;
+/* Custom System Keyframe Slide Animations */
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* تصميم نافذة الإشعار العائمة لحماية حقوق الصور (Copyright Toast) */
+.animate-slide-up {
+    animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 15s linear infinite;
+}
+
+/* Premium Copyright floating Toast Design Alert */
 #copyright-toast {
     position: fixed;
     bottom: 24px;
@@ -60,27 +72,20 @@ body {
     color: #f8fafc;
     padding: 12px 24px;
     border-radius: 9999px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-    font-size: 0.8rem;
-    font-weight: 500;
-    z-index: 9999;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-    opacity: 0;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    border: 1px solid #1e293b;
     display: flex;
     align-items: center;
     gap: 8px;
-    border: 1px solid #334155;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 99999;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    opacity: 0;
     pointer-events: none;
-    white-space: nowrap;
 }
 
 #copyright-toast.show {
     transform: translateX(-50%) translateY(0);
     opacity: 1;
-}
-
-/* تأثيرات مخصصة لحواف الصور ومنع سحبها */
-img {
-    user-select: none;
-    -webkit-user-drag: none;
 }
