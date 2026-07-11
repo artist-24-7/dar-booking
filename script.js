@@ -1,6 +1,7 @@
 /**
  * Ocean View Villa - Premium Core Engine
  * Handles Security, Asset Protection, Geo-Routing, Activity Search & High-Fidelity Image Zoom Modals
+ * Fully optimized for seamless compatibility with index(6).html and layout-6 architectures.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 2500);
         };
 
-        // Prevent image drag
+        // Prevent image drag across the site
         document.querySelectorAll('img').forEach(img => {
             img.addEventListener('dragstart', (e) => {
                 e.preventDefault();
@@ -36,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Prevent right click on images and gallery assets
+        // Prevent right click on images and defined gallery slots
         document.addEventListener('contextmenu', (e) => {
-            if (e.target.tagName === 'IMG' || e.target.closest('#gallery') || e.target.closest('#villa-gallery')) {
+            if (e.target.tagName === 'IMG' || e.target.closest('#gallery') || e.target.closest('#villa-gallery') || e.target.closest('.grid')) {
                 e.preventDefault();
                 triggerProtectionAlert('Asset Protection Active: Photography is copyrighted.');
             }
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initializeAssetProtection();
 
-    // Watch dynamic contents
+    // Watch dynamic contents to apply drag protection automatically
     const observer = new MutationObserver(() => {
         document.querySelectorAll('img').forEach(img => {
             if (!img.hasAttribute('data-protected')) {
@@ -107,49 +108,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ==========================================================================
-    // 4. HIGH-FIDELITY IMMERSIVE ZOOM SYSTEM (Fixed & Google Translate Isolated)
+    // 4. HIGH-FIDELITY IMMERSIVE ZOOM SYSTEM (Universal Layout Engine)
     // ==========================================================================
     const initializeLightboxZoom = () => {
-        // Selector target elements safely including dynamic sections
-        const zoomableImages = document.querySelectorAll('#gallery img, #villa-gallery img, .gallery-item img, [id*="gallery"] img');
+        // الاستهداف الشامل لجميع الصور داخل حاويات العرض لضمان التوافق مع الهيكل الجديد لـ index(6)
+        const targetSelectors = 'section img, .grid img, main img, #gallery img, #villa-gallery img, [id*="gallery"] img';
+        const allImages = document.querySelectorAll(targetSelectors);
         
-        zoomableImages.forEach(img => {
+        allImages.forEach(img => {
+            // استثناء الأيقونات الصغيرة جداً أو الأعلام لكي لا يتم تكبيرها بالخطأ
+            if (img.clientWidth < 60 && img.naturalWidth < 60) return;
+            
             img.style.cursor = 'zoom-in';
             
             img.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
+                e.stopImmediatePropagation(); // حظر فوري لأي تداخل مع أدوات الترجمة التلقائية
                 
+                // بناء هيكل نافذة العرض المتطابقة مع كود الـ CSS الجديد
                 const lightbox = document.createElement('div');
-                // Added strict 'notranslate' and 'skiptranslate' classes to block translation scripts entirely
-                lightbox.className = 'fixed inset-0 z-[9999] bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 notranslate skiptranslate select-none';
-                // Strict HTML5 attribute to disable translation engine behavior inside this container
+                lightbox.className = 'lightbox-modal notranslate skiptranslate';
                 lightbox.setAttribute('translate', 'no');
                 
                 lightbox.innerHTML = `
-                    <button class="close-lightbox-btn fixed top-4 right-4 z-[10000] text-white text-4xl bg-slate-900/80 hover:bg-amber-500 w-12 h-12 rounded-full flex items-center justify-center transition-all border border-slate-700 shadow-2xl cursor-pointer focus:outline-none notranslate" translate="no">&times;</button>
-                    <div class="relative max-w-4xl max-h-[85vh] flex items-center justify-center animate-slide-up select-none notranslate" translate="no">
-                        <img src="${img.src}" alt="${img.alt || 'Ocean View Villa Asset'}" class="max-w-full max-h-[80vh] rounded-xl shadow-2xl object-contain border border-slate-800 transition-transform duration-300 cursor-zoom-out global-zoom-img notranslate" translate="no">
+                    <button class="lightbox-close-x notranslate" translate="no" aria-label="Close">&times;</button>
+                    <div class="relative max-w-5xl max-h-[85vh] flex items-center justify-center animate-slide-up select-none notranslate" translate="no">
+                        <img src="${img.src}" alt="${img.alt || 'Ocean View Villa Premium Asset'}" class="global-zoom-img notranslate" translate="no">
                     </div>
                 `;
                 
                 document.body.appendChild(lightbox);
                 
-                // Smooth Fade-In Animation setup
+                // تفعيل وضعية ملء الشاشة وحظر نزول الصفحة الخلفية
+                document.documentElement.classList.add('custom-lightbox-active');
+                
+                // بدء تفعيل تأثير التلاشي التدريجي (Fade In)
                 setTimeout(() => {
-                    lightbox.classList.remove('opacity-0');
                     lightbox.classList.add('opacity-100');
                 }, 10);
                 
                 const lightboxImg = lightbox.querySelector('.global-zoom-img');
+                const closeBtn = lightbox.querySelector('.lightbox-close-x');
                 let isZoomed = false;
                 
-                // Handle image internal zoom safely
+                // نقرة ثانية اختيارية داخل الصورة لعمل زوم إضافي سلس (Double-Zoom Effect)
                 lightboxImg.addEventListener('click', (event) => {
                     event.preventDefault();
-                    event.stopPropagation(); // Stop background from closing instantly when clicking the asset image
+                    event.stopPropagation();
+                    event.stopImmediatePropagation();
+                    
                     if (!isZoomed) {
-                        lightboxImg.style.transform = 'scale(1.25)';
+                        lightboxImg.style.transform = 'scale(1.2)';
                         lightboxImg.style.cursor = 'zoom-out';
                         isZoomed = true;
                     } else {
@@ -159,20 +169,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
                 
+                // وظيفة إغلاق النافذة بطريقة نظيفة ومعاكسة التلاشي (Fade Out)
                 const dismissLightbox = () => {
                     lightbox.classList.remove('opacity-100');
-                    lightbox.classList.add('opacity-0');
-                    setTimeout(() => lightbox.remove(), 300);
+                    document.documentElement.classList.remove('custom-lightbox-active');
+                    setTimeout(() => {
+                        if (lightbox.parentNode) lightbox.remove();
+                    }, 300);
                 };
                 
-                // Close perfectly whenever clicking anywhere outside the actual asset image layout (PC click)
+                // إغلاق فوري وآمن عند النقر على الخلفية الضبابية (Desktop PC)
                 lightbox.addEventListener('click', (event) => {
                     if (event.target !== lightboxImg) {
                         dismissLightbox();
                     }
                 });
 
-                // Mobile specific ultra-responsive touch close handling
+                // إغلاق فائق الاستجابة متوافق مع شاشات اللمس والهواتف الذكية (Mobile Fix)
                 lightbox.addEventListener('touchend', (event) => {
                     if (event.target !== lightboxImg && !event.target.classList.contains('global-zoom-img')) {
                         if (!isZoomed) {
@@ -181,9 +194,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
                 
-                // Direct close tap execution on button click
-                lightbox.querySelector('.close-lightbox-btn').addEventListener('click', (event) => {
+                // إغلاق مباشر عند الضغط على زر الإغلاق المخصص (X)
+                closeBtn.addEventListener('click', (event) => {
                     event.stopPropagation();
+                    event.stopImmediatePropagation();
                     dismissLightbox();
                 });
             });
