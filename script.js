@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ==========================================================================
-    // 4. HIGH-FIDELITY IMMERSIVE ZOOM SYSTEM (Fixed & Fully Functional)
+    // 4. HIGH-FIDELITY IMMERSIVE ZOOM SYSTEM (Fixed & Google Translate Isolated)
     // ==========================================================================
     const initializeLightboxZoom = () => {
         // Selector target elements safely including dynamic sections
@@ -121,13 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.stopPropagation();
                 
                 const lightbox = document.createElement('div');
-                lightbox.className = 'fixed inset-0 z-[9999] bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 skiptranslate';
+                // Added strict 'notranslate' and 'skiptranslate' classes to block translation scripts entirely
+                lightbox.className = 'fixed inset-0 z-[9999] bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 notranslate skiptranslate select-none';
+                // Strict HTML5 attribute to disable translation engine behavior inside this container
+                lightbox.setAttribute('translate', 'no');
                 
-                // Positioned the close button firmly to be fixed at top-right for flawless mobile response
                 lightbox.innerHTML = `
-                    <button class="close-lightbox-btn fixed top-4 right-4 z-[10000] text-white text-4xl bg-slate-900/80 hover:bg-amber-500 w-12 h-12 rounded-full flex items-center justify-center transition-all border border-slate-700 shadow-2xl cursor-pointer focus:outline-none">&times;</button>
-                    <div class="relative max-w-4xl max-h-[85vh] flex items-center justify-center animate-slide-up select-none">
-                        <img src="${img.src}" alt="${img.alt || 'Ocean View Villa Asset'}" class="max-w-full max-h-[80vh] rounded-xl shadow-2xl object-contain border border-slate-800 transition-transform duration-300 cursor-zoom-out global-zoom-img no-translate">
+                    <button class="close-lightbox-btn fixed top-4 right-4 z-[10000] text-white text-4xl bg-slate-900/80 hover:bg-amber-500 w-12 h-12 rounded-full flex items-center justify-center transition-all border border-slate-700 shadow-2xl cursor-pointer focus:outline-none notranslate" translate="no">&times;</button>
+                    <div class="relative max-w-4xl max-h-[85vh] flex items-center justify-center animate-slide-up select-none notranslate" translate="no">
+                        <img src="${img.src}" alt="${img.alt || 'Ocean View Villa Asset'}" class="max-w-full max-h-[80vh] rounded-xl shadow-2xl object-contain border border-slate-800 transition-transform duration-300 cursor-zoom-out global-zoom-img notranslate" translate="no">
                     </div>
                 `;
                 
@@ -148,9 +150,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     event.stopPropagation(); // Stop background from closing instantly when clicking the asset image
                     if (!isZoomed) {
                         lightboxImg.style.transform = 'scale(1.25)';
+                        lightboxImg.style.cursor = 'zoom-out';
                         isZoomed = true;
                     } else {
                         lightboxImg.style.transform = 'scale(1)';
+                        lightboxImg.style.cursor = 'zoom-in';
                         isZoomed = false;
                     }
                 });
@@ -161,10 +165,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => lightbox.remove(), 300);
                 };
                 
-                // Close perfectly whenever clicking anywhere outside the actual asset image layout
+                // Close perfectly whenever clicking anywhere outside the actual asset image layout (PC click)
                 lightbox.addEventListener('click', (event) => {
                     if (event.target !== lightboxImg) {
                         dismissLightbox();
+                    }
+                });
+
+                // Mobile specific ultra-responsive touch close handling
+                lightbox.addEventListener('touchend', (event) => {
+                    if (event.target !== lightboxImg && !event.target.classList.contains('global-zoom-img')) {
+                        if (!isZoomed) {
+                            dismissLightbox();
+                        }
                     }
                 });
                 
