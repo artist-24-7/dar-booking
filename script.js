@@ -110,7 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. HIGH-FIDELITY IMMERSIVE ZOOM SYSTEM (Fixed & Fully Functional)
     // ==========================================================================
     const initializeLightboxZoom = () => {
-        const zoomableImages = document.querySelectorAll('#gallery img, #villa-gallery img, .gallery-item img');
+        // Selector target elements safely including dynamic sections
+        const zoomableImages = document.querySelectorAll('#gallery img, #villa-gallery img, .gallery-item img, [id*="gallery"] img');
         
         zoomableImages.forEach(img => {
             img.style.cursor = 'zoom-in';
@@ -122,25 +123,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 const lightbox = document.createElement('div');
                 lightbox.className = 'fixed inset-0 z-[9999] bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 skiptranslate';
                 
+                // Positioned the close button firmly to be fixed at top-right for flawless mobile response
                 lightbox.innerHTML = `
+                    <button class="close-lightbox-btn fixed top-4 right-4 z-[10000] text-white text-4xl bg-slate-900/80 hover:bg-amber-500 w-12 h-12 rounded-full flex items-center justify-center transition-all border border-slate-700 shadow-2xl cursor-pointer focus:outline-none">&times;</button>
                     <div class="relative max-w-4xl max-h-[85vh] flex items-center justify-center animate-slide-up select-none">
                         <img src="${img.src}" alt="${img.alt || 'Ocean View Villa Asset'}" class="max-w-full max-h-[80vh] rounded-xl shadow-2xl object-contain border border-slate-800 transition-transform duration-300 cursor-zoom-out global-zoom-img no-translate">
-                        <button class="close-lightbox-btn absolute -top-12 right-0 md:-right-12 text-white text-3xl bg-slate-900/80 hover:bg-amber-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors border border-slate-700">&times;</button>
                     </div>
                 `;
                 
                 document.body.appendChild(lightbox);
                 
-                // Fade in animation
-                setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
+                // Smooth Fade-In Animation setup
+                setTimeout(() => {
+                    lightbox.classList.remove('opacity-0');
+                    lightbox.classList.add('opacity-100');
+                }, 10);
                 
                 const lightboxImg = lightbox.querySelector('.global-zoom-img');
                 let isZoomed = false;
                 
-                // Toggle extra zoom level inside the lightbox when clicking the image
+                // Handle image internal zoom safely
                 lightboxImg.addEventListener('click', (event) => {
                     event.preventDefault();
-                    event.stopPropagation(); // Prevents backdrop click from closing it
+                    event.stopPropagation(); // Stop background from closing instantly when clicking the asset image
                     if (!isZoomed) {
                         lightboxImg.style.transform = 'scale(1.25)';
                         isZoomed = true;
@@ -151,18 +156,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 
                 const dismissLightbox = () => {
+                    lightbox.classList.remove('opacity-100');
                     lightbox.classList.add('opacity-0');
                     setTimeout(() => lightbox.remove(), 300);
                 };
                 
-                // Close ONLY when clicking the dark background layout directly
+                // Close perfectly whenever clicking anywhere outside the actual asset image layout
                 lightbox.addEventListener('click', (event) => {
-                    if (event.target === lightbox) {
+                    if (event.target !== lightboxImg) {
                         dismissLightbox();
                     }
                 });
                 
-                // Close when clicking the (X) Button
+                // Direct close tap execution on button click
                 lightbox.querySelector('.close-lightbox-btn').addEventListener('click', (event) => {
                     event.stopPropagation();
                     dismissLightbox();
