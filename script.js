@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ==========================================================================
-    // 4. HIGH-FIDELITY IMMERSIVE ZOOM SYSTEM (With Google Translate Isolated Fix)
+    // 4. HIGH-FIDELITY IMMERSIVE ZOOM SYSTEM (Fixed for PC & Mobile Zooming)
     // ==========================================================================
     const initializeLightboxZoom = () => {
         const zoomableImages = document.querySelectorAll('#gallery img, #villa-gallery img, .gallery-item img');
@@ -119,13 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.stopPropagation();
                 
                 const lightbox = document.createElement('div');
-                lightbox.className = 'fixed inset-0 z-[9999] bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 cursor-zoom-out transition-opacity duration-300 opacity-0 skiptranslate';
+                lightbox.className = 'fixed inset-0 z-[9999] bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 skiptranslate';
                 
-                // Added strict selection blocking and pointer isolation to prevent triggering translate engine widgets
                 lightbox.innerHTML = `
-                    <div class="relative max-w-5xl max-h-[90vh] flex items-center justify-center animate-slide-up select-none touch-none">
-                        <img src="${img.src}" alt="${img.alt || 'Ocean View Villa Asset'}" class="max-w-full max-h-[85vh] rounded-xl shadow-2xl object-contain border border-slate-800 select-none pointer-events-none no-translate">
-                        <button class="absolute -top-12 right-0 md:-right-12 text-white text-3xl bg-slate-900/80 hover:bg-amber-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors border border-slate-700">&times;</button>
+                    <div class="relative max-w-5xl max-h-[90vh] flex items-center justify-center animate-slide-up select-none">
+                        <img src="${img.src}" alt="${img.alt || 'Ocean View Villa Asset'}" class="max-w-full max-h-[85vh] rounded-xl shadow-2xl object-contain border border-slate-800 transition-transform duration-300 cursor-zoom-out global-zoom-img no-translate">
+                        <button class="close-lightbox-btn absolute -top-12 right-0 md:-right-12 text-white text-3xl bg-slate-900/80 hover:bg-amber-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors border border-slate-700">&times;</button>
                     </div>
                 `;
                 
@@ -133,12 +132,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
                 
+                const lightboxImg = lightbox.querySelector('.global-zoom-img');
+                let isZoomed = false;
+                
+                // Toggle actual zoom when clicking/tapping the image
+                lightboxImg.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    if (!isZoomed) {
+                        lightboxImg.style.transform = 'scale(1.4)';
+                        lightboxImg.style.cursor = 'zoom-out';
+                        isZoomed = true;
+                    } else {
+                        lightboxImg.style.transform = 'scale(1)';
+                        lightboxImg.style.cursor = 'zoom-in';
+                        isZoomed = false;
+                    }
+                });
+                
                 const dismissLightbox = () => {
                     lightbox.classList.add('opacity-0');
                     setTimeout(() => lightbox.remove(), 300);
                 };
                 
+                // Close only on background click
                 lightbox.addEventListener('click', dismissLightbox);
+                
+                // Close on Button click
+                lightbox.querySelector('.close-lightbox-btn').addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    dismissLightbox();
+                });
             });
         });
     };
